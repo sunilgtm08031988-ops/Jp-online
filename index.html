@@ -4,101 +4,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JP ONLINE - Shopping</title>
+<meta name="theme-color" content="#102b55">
+<meta name="description" content="JP ONLINE - Hindi and English online shopping and referral platform.">
+<title>JP ONLINE | आपकी अपनी ऑनलाइन शॉपिंग</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f6fa;color:#222}
-header{background:#123c70;color:white;padding:22px 15px;text-align:center}
-header h1{margin:0;font-size:30px}
-nav{background:#092c55;padding:12px;text-align:center}
-nav a{color:white;text-decoration:none;margin:10px;font-size:14px}
-.container{max-width:900px;margin:auto;padding:15px}
-.hero{background:white;padding:30px 18px;text-align:center;border-radius:12px;margin-top:15px}
-.hero h2{color:#123c70;font-size:27px}
-.btn{background:#087b48;color:white;padding:12px 20px;border:0;border-radius:7px;cursor:pointer;margin:5px}
-.card{background:white;padding:18px;margin:14px 0;border-radius:12px;box-shadow:0 2px 8px #ddd}
-input,select{width:100%;padding:13px;margin:8px 0;border:1px solid #ccc;border-radius:6px}
-footer{background:#123c70;color:white;text-align:center;padding:20px;margin-top:25px}
+:root{--navy:#102b55;--blue:#1769aa;--gold:#f5b942;--ink:#17243a;--muted:#64748b;--bg:#f4f7fb;--white:#fff;--line:#e5eaf1;--green:#14804a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Devanagari",Arial,sans-serif;background:var(--bg);color:var(--ink)}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+header{background:var(--navy);color:white;position:sticky;top:0;z-index:10;box-shadow:0 3px 16px #102b5522}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}.brand{font-weight:900;font-size:25px;letter-spacing:.5px}.brand span{color:var(--gold)}
+nav{display:flex;align-items:center;gap:20px;font-size:14px}nav a{opacity:.92}nav a:hover{color:var(--gold)}
+.btn{border:0;border-radius:10px;padding:12px 18px;font-weight:750;cursor:pointer;display:inline-block;background:var(--gold);color:#1c2b43}.btn.blue{background:var(--blue);color:white}.btn.outline{background:transparent;border:1px solid #ffffff88;color:white}
+.hero{background:linear-gradient(120deg,#102b55,#1769aa);color:white;padding:70px 0 64px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center}.eyebrow{color:var(--gold);font-weight:800;letter-spacing:1.5px;font-size:13px}
+h1{font-size:clamp(34px,5vw,56px);line-height:1.12;margin:14px 0}.hero p{font-size:18px;line-height:1.7;color:#e5efff;max-width:620px}
+.hero-card{background:#ffffff14;border:1px solid #ffffff35;border-radius:22px;padding:26px;text-align:center;backdrop-filter:blur(5px)}
+.hero-card strong{display:block;font-size:56px;color:var(--gold)}.hero-card span{font-weight:700}
+section{padding:54px 0}.section-head{text-align:center;margin-bottom:28px}.section-head h2{font-size:30px;margin:0 0 8px;color:var(--navy)}.section-head p{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 8px 25px #102b5508}
+.product-art{height:130px;border-radius:12px;background:linear-gradient(135deg,#eaf2ff,#fdf3d9);display:grid;place-items:center;font-size:48px;margin-bottom:16px}
+.card h3{margin:8px 0}.muted{color:var(--muted);font-size:14px;line-height:1.6}.price{font-size:22px;font-weight:850;color:var(--navy);margin:12px 0}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+form{display:grid;gap:12px}input,select{width:100%;padding:13px 14px;border:1px solid #d9e1ec;border-radius:10px;font:inherit;background:white}
+label{font-size:13px;font-weight:700;color:#334155}.field{display:grid;gap:6px}
+.note{padding:13px 15px;background:#fff8e8;border:1px solid #f4dfa8;border-radius:10px;color:#77520a;font-size:13px;line-height:1.55}
+.commission{background:var(--navy);color:white;border-radius:18px;padding:26px}.commission .big{font-size:54px;color:var(--gold);font-weight:900}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.step{background:white;padding:20px;border-radius:14px;border:1px solid var(--line)}.step b{display:block;color:var(--blue);font-size:22px;margin-bottom:8px}
+footer{background:#0b1d39;color:#d7e2f2;padding:30px 0;text-align:center;font-size:13px}
+.menu-btn{display:none;background:transparent;color:white;border:1px solid #ffffff66;border-radius:8px;padding:8px 10px}
+#status{font-size:13px;color:var(--green);min-height:18px}
+@media(max-width:760px){.hero-grid,.split{grid-template-columns:1fr}.grid,.steps{grid-template-columns:1fr}.nav{flex-wrap:wrap}nav{display:none;width:100%;flex-direction:column;align-items:flex-start;padding:10px 0}nav.open{display:flex}.menu-btn{display:block}.hero{padding:48px 0}.hero-card{max-width:360px}}
 </style>
 </head>
 <body>
+<header><div class="wrap nav">
+<a class="brand" href="#home">JP <span>ONLINE</span></a>
+<button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+<nav id="nav"><a href="#home" data-hi="होम" data-en="Home">होम</a><a href="#products" data-hi="उत्पाद" data-en="Products">उत्पाद</a><a href="#register" data-hi="रजिस्ट्रेशन" data-en="Register">रजिस्ट्रेशन</a><a href="#commission" data-hi="कमीशन" data-en="Commission">कमीशन</a><a href="#payment" data-hi="भुगतान" data-en="Payment">भुगतान</a></nav>
+<button class="btn outline" id="langBtn">English</button>
+</div></header>
 
-<header>
-<h1>JP ONLINE</h1>
-<p>आपकी अपनी ऑनलाइन शॉपिंग वेबसाइट</p>
-<button class="btn" onclick="changeLang()">हिंदी / English</button>
-</header>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#products">Products</a>
-<a href="#register">Register</a>
-<a href="#commission">Commission</a>
-</nav>
-
-<div class="container">
-
-<section class="hero" id="home">
-<h2 id="welcome">JP ONLINE में आपका स्वागत है</h2>
-<p id="intro">खरीदारी करें और अपने बिजनेस को आगे बढ़ाएं।</p>
-<button class="btn" onclick="document.getElementById('products').scrollIntoView()">Shop Now</button>
-</section>
-
-<section class="card" id="products">
-<h2>हमारे Products / उत्पाद</h2>
-<p>यहाँ जल्द ही सभी उत्पाद उपलब्ध होंगे।</p>
-<div class="card">
-<h3>Product 1</h3>
-<p>उत्पाद की जानकारी और कीमत जल्द अपडेट होगी।</p>
-<button class="btn" onclick="alert('उत्पाद जल्द उपलब्ध होगा')">Buy Now</button>
+<main>
+<section class="hero" id="home"><div class="wrap hero-grid">
+<div><div class="eyebrow" data-hi="आपकी अपनी ऑनलाइन शॉपिंग वेबसाइट" data-en="YOUR ONLINE SHOPPING PLATFORM">आपकी अपनी ऑनलाइन शॉपिंग वेबसाइट</div>
+<h1 data-hi="खरीदारी करें। अपना नेटवर्क बढ़ाएं।" data-en="Shop smart. Grow your network.">खरीदारी करें। अपना नेटवर्क बढ़ाएं।</h1>
+<p data-hi="JP ONLINE पर खरीदारी और रेफरल से जुड़ें। आसान अनुभव, हिंदी और English दोनों भाषाओं में।" data-en="Shop and join the referral community at JP ONLINE. A simple experience in Hindi and English.">JP ONLINE पर खरीदारी और रेफरल से जुड़ें। आसान अनुभव, हिंदी और English दोनों भाषाओं में।</p>
+<a class="btn" href="#products" data-hi="खरीदारी शुरू करें" data-en="Start Shopping">खरीदारी शुरू करें</a>
 </div>
-</section>
+<div class="hero-card"><strong>10%</strong><span data-hi="सीधे रेफरल पर प्रस्तावित कमीशन" data-en="Proposed direct referral commission">सीधे रेफरल पर प्रस्तावित कमीशन</span><p class="muted" style="color:#e5efff" data-hi="रेफरल सदस्य की पात्र खरीदारी पर जीवनभर" data-en="For eligible purchases by your referred member, for life">रेफरल सदस्य की पात्र खरीदारी पर जीवनभर</p></div>
+</div></section>
 
-<section class="card" id="register">
-<h2>Customer Registration</h2>
-<form onsubmit="event.preventDefault();alert('यह केवल Trial Registration है। अभी अकाउंट सेव नहीं होता।')">
-<input placeholder="पूरा नाम / Full Name" required>
-<input type="tel" placeholder="Mobile Number" required>
-<input type="email" placeholder="Email Address">
-<input type="password" placeholder="Password" required>
-<button class="btn" type="submit">Register</button>
-</form>
-<p>यह अभी Demo है, वास्तविक अकाउंट सिस्टम नहीं।</p>
-</section>
+<section id="products"><div class="wrap"><div class="section-head"><h2 data-hi="हमारे उत्पाद" data-en="Our Products">हमारे उत्पाद</h2><p data-hi="उत्पाद और कीमतें जल्द अपडेट की जाएंगी" data-en="Products and prices will be updated soon">उत्पाद और कीमतें जल्द अपडेट की जाएंगी</p></div>
+<div class="grid">
+<div class="card"><div class="product-art">🛍️</div><h3 data-hi="उत्पाद 1" data-en="Product 1">उत्पाद 1</h3><p class="muted" data-hi="उत्पाद की जानकारी यहां जोड़ी जाएगी।" data-en="Product details will be added here.">उत्पाद की जानकारी यहां जोड़ी जाएगी।</p><div class="price" data-hi="कीमत जल्द" data-en="Price soon">कीमत जल्द</div><button class="btn blue" onclick="alert(lang==='hi'?'उत्पाद की बिक्री अभी शुरू नहीं हुई है।':'Product sales are not active yet.') " data-hi="जल्द उपलब्ध" data-en="Coming Soon">जल्द उपलब्ध</button></div>
+<div class="card"><div class="product-art">📦</div><h3 data-hi="उत्पाद 2" data-en="Product 2">उत्पाद 2</h3><p class="muted" data-hi="उत्पाद की जानकारी यहां जोड़ी जाएगी।" data-en="Product details will be added here.">उत्पाद की जानकारी यहां जोड़ी जाएगी।</p><div class="price" data-hi="कीमत जल्द" data-en="Price soon">कीमत जल्द</div><button class="btn blue" onclick="alert(lang==='hi'?'उत्पाद की बिक्री अभी शुरू नहीं हुई है।':'Product sales are not active yet.')" data-hi="जल्द उपलब्ध" data-en="Coming Soon">जल्द उपलब्ध</button></div>
+<div class="card"><div class="product-art">🎁</div><h3 data-hi="उत्पाद 3" data-en="Product 3">उत्पाद 3</h3><p class="muted" data-hi="उत्पाद की जानकारी यहां जोड़ी जाएगी।" data-en="Product details will be added here.">उत्पाद की जानकारी यहां जोड़ी जाएगी।</p><div class="price" data-hi="कीमत जल्द" data-en="Price soon">कीमत जल्द</div><button class="btn blue" onclick="alert(lang==='hi'?'उत्पाद की बिक्री अभी शुरू नहीं हुई है।':'Product sales are not active yet.')" data-hi="जल्द उपलब्ध" data-en="Coming Soon">जल्द उपलब्ध</button></div>
+</div></div></section>
 
-<section class="card" id="commission">
-<h2>Direct Referral Commission</h2>
-<h1 style="color:green">10%</h1>
-<p>सीधे रेफरल से 10% कमीशन का प्रस्ताव। वास्तविक कमीशन नियम और भुगतान सिस्टम शुरू होने के बाद लागू होंगे।</p>
-</section>
+<section id="commission" style="background:#eaf1fa"><div class="wrap split">
+<div class="commission"><div class="eyebrow" data-hi="JP ONLINE रेफरल मॉडल" data-en="JP ONLINE REFERRAL MODEL">JP ONLINE रेफरल मॉडल</div><div class="big">10%</div><h2 data-hi="सीधा रेफरल कमीशन" data-en="Direct Referral Commission">सीधा रेफरल कमीशन</h2><p data-hi="आपके सीधे रेफरल से जुड़े ग्राहक की पात्र खरीदारी पर प्रस्तावित 10% कमीशन, जीवनभर।" data-en="Proposed 10% commission on eligible purchases by customers directly referred by you, for life.">आपके सीधे रेफरल से जुड़े ग्राहक की पात्र खरीदारी पर प्रस्तावित 10% कमीशन, जीवनभर।</p></div>
+<div><h2 data-hi="यह कैसे काम करेगा?" data-en="How it will work">यह कैसे काम करेगा?</h2><div class="steps" style="grid-template-columns:1fr"><div class="step"><b>01</b><span data-hi="आपका सदस्य रजिस्ट्रेशन करेगा।" data-en="Your member registers.">आपका सदस्य रजिस्ट्रेशन करेगा।</span></div><div class="step"><b>02</b><span data-hi="वह आपके रेफरल कोड से जुड़ेगा।" data-en="They join using your referral code.">वह आपके रेफरल कोड से जुड़ेगा।</span></div><div class="step"><b>03</b><span data-hi="पात्र खरीदारी पर कमीशन रिकॉर्ड होगा।" data-en="Commission is recorded on eligible purchases.">पात्र खरीदारी पर कमीशन रिकॉर्ड होगा।</span></div></div></div>
+</div></section>
 
-<section class="card" id="payment">
-<h2>Payment Options</h2>
-<p>भुगतान का विकल्प चुनें:</p>
-<select id="pay">
-<option>UPI Payment</option>
-<option>Bank Transfer</option>
-</select>
-<button class="btn" onclick="alert('Trial: भुगतान अभी सक्रिय नहीं है।')">Continue</button>
-<p>अभी कोई वास्तविक भुगतान स्वीकार नहीं किया जाता।</p>
-</section>
+<section id="register"><div class="wrap split"><div><div class="section-head" style="text-align:left"><h2 data-hi="ग्राहक रजिस्ट्रेशन" data-en="Customer Registration">ग्राहक रजिस्ट्रेशन</h2><p data-hi="JP ONLINE से जुड़ने के लिए विवरण भरें।" data-en="Fill in your details to join JP ONLINE.">JP ONLINE से जुड़ने के लिए विवरण भरें।</p></div>
+<div class="note" data-hi="यह अभी केवल डिजाइन/ट्रायल फॉर्म है। जानकारी सर्वर पर सेव नहीं होती और वास्तविक अकाउंट नहीं बनता।" data-en="This is a design/trial form only. Details are not saved to a server and no real account is created.">यह अभी केवल डिजाइन/ट्रायल फॉर्म है। जानकारी सर्वर पर सेव नहीं होती और वास्तविक अकाउंट नहीं बनता।</div></div>
+<div class="card"><form id="regForm"><div class="field"><label for="fullname" data-hi="पूरा नाम" data-en="Full Name">पूरा नाम</label><input id="fullname" required placeholder="पूरा नाम / Full name"></div>
+<div class="field"><label for="mobile" data-hi="मोबाइल नंबर" data-en="Mobile Number">मोबाइल नंबर</label><input id="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required placeholder="10 digit mobile number"></div>
+<div class="field"><label for="email">Email</label><input id="email" type="email" placeholder="Email (optional)"></div>
+<div class="field"><label for="refcode" data-hi="रेफरल कोड (यदि हो)" data-en="Referral Code (if any)">रेफरल कोड (यदि हो)</label><input id="refcode" placeholder="Referral code"></div>
+<button class="btn blue" type="submit" data-hi="ट्रायल फॉर्म जांचें" data-en="Preview Registration">ट्रायल फॉर्म जांचें</button><div id="status" role="status"></div></form></div>
+</div></section>
 
-</div>
-
-<footer>
-<h3>JP ONLINE</h3>
-<p>Thank you for visiting!</p>
-<p>© 2026 JP ONLINE. All Rights Reserved.</p>
-</footer>
-
+<section id="payment" style="background:#eaf1fa"><div class="wrap split"><div><div class="section-head" style="text-align:left"><h2 data-hi="भुगतान विकल्प" data-en="Payment Options">भुगतान विकल्प</h2><p data-hi="ट्रायल में UPI और Bank Transfer विकल्प रखे गए हैं।" data-en="UPI and Bank Transfer options are included in the trial design.">ट्रायल में UPI और Bank Transfer विकल्प रखे गए हैं।</p></div><p class="muted" data-hi="अभी भुगतान स्वीकार या सत्यापित नहीं होता। वास्तविक भुगतान शुरू करने से पहले सुरक्षित पेमेंट गेटवे/बैंक सत्यापन और ऑर्डर सिस्टम जोड़ना होगा।" data-en="Payments are not accepted or verified yet. A secure payment gateway/bank verification and order system must be connected before real payments begin.">अभी भुगतान स्वीकार या सत्यापित नहीं होता। वास्तविक भुगतान शुरू करने से पहले सुरक्षित पेमेंट गेटवे/बैंक सत्यापन और ऑर्डर सिस्टम जोड़ना होगा।</p></div>
+<div class="card"><div class="field"><label for="paymethod" data-hi="भुगतान का विकल्प चुनें" data-en="Choose payment method">भुगतान का विकल्प चुनें</label><select id="paymethod"><option value="UPI">UPI</option><option value="Bank Transfer">Bank Transfer</option></select></div><button class="btn blue" style="margin-top:14px" onclick="alert(lang==='hi'?'यह ट्रायल विकल्प है। वास्तविक भुगतान अभी चालू नहीं है।':'This is a trial option. Real payments are not active yet.') " data-hi="आगे बढ़ें (ट्रायल)" data-en="Continue (Trial)">आगे बढ़ें (ट्रायल)</button></div>
+</div></section>
+</main>
+<footer><div class="wrap"><strong>JP ONLINE</strong><p data-hi="आपकी अपनी ऑनलाइन शॉपिंग वेबसाइट" data-en="Your own online shopping website">आपकी अपनी ऑनलाइन शॉपिंग वेबसाइट</p><p>© 2026 JP ONLINE. All Rights Reserved.</p></div></footer>
 <script>
-let hindi=true;
-function changeLang(){
-hindi=!hindi;
-document.getElementById('welcome').innerText=hindi?'JP ONLINE में आपका स्वागत है':'Welcome to JP ONLINE';
-document.getElementById('intro').innerText=hindi?'खरीदारी करें और अपने बिजनेस को आगे बढ़ाएं।':'Shop online and grow your business.';
-}
+let lang='hi';
+const langBtn=document.getElementById('langBtn');
+function setLang(next){lang=next;document.documentElement.lang=next;document.querySelectorAll('[data-hi]').forEach(el=>{el.textContent=el.dataset[next]});langBtn.textContent=next==='hi'?'English':'हिंदी'}
+langBtn.addEventListener('click',()=>setLang(lang==='hi'?'en':'hi'));
+document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('nav').classList.toggle('open'));
+document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+document.getElementById('regForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('status').textContent=lang==='hi'?'ट्रायल फॉर्म सही है। वास्तविक रजिस्ट्रेशन चालू नहीं है।':'Trial form looks valid. Real registration is not active.';});
 </script>
-
-</body>
-</html>
+</body></html>
