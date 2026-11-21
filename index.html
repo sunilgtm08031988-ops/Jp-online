@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JP ONLINE - Shopping</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6fa;color:#222}
+header{background:#123c70;color:white;padding:22px 15px;text-align:center}
+header h1{margin:0;font-size:30px}
+nav{background:#092c55;padding:12px;text-align:center}
+nav a{color:white;text-decoration:none;margin:10px;font-size:14px}
+.container{max-width:900px;margin:auto;padding:15px}
+.hero{background:white;padding:30px 18px;text-align:center;border-radius:12px;margin-top:15px}
+.hero h2{color:#123c70;font-size:27px}
+.btn{background:#087b48;color:white;padding:12px 20px;border:0;border-radius:7px;cursor:pointer;margin:5px}
+.card{background:white;padding:18px;margin:14px 0;border-radius:12px;box-shadow:0 2px 8px #ddd}
+input,select{width:100%;padding:13px;margin:8px 0;border:1px solid #ccc;border-radius:6px}
+footer{background:#123c70;color:white;text-align:center;padding:20px;margin-top:25px}
+</style>
+</head>
+<body>
+
+<header>
+<h1>JP ONLINE</h1>
+<p>आपकी अपनी ऑनलाइन शॉपिंग वेबसाइट</p>
+<button class="btn" onclick="changeLang()">हिंदी / English</button>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#register">Register</a>
+<a href="#commission">Commission</a>
+</nav>
+
+<div class="container">
+
+<section class="hero" id="home">
+<h2 id="welcome">JP ONLINE में आपका स्वागत है</h2>
+<p id="intro">खरीदारी करें और अपने बिजनेस को आगे बढ़ाएं।</p>
+<button class="btn" onclick="document.getElementById('products').scrollIntoView()">Shop Now</button>
+</section>
+
+<section class="card" id="products">
+<h2>हमारे Products / उत्पाद</h2>
+<p>यहाँ जल्द ही सभी उत्पाद उपलब्ध होंगे।</p>
+<div class="card">
+<h3>Product 1</h3>
+<p>उत्पाद की जानकारी और कीमत जल्द अपडेट होगी।</p>
+<button class="btn" onclick="alert('उत्पाद जल्द उपलब्ध होगा')">Buy Now</button>
+</div>
+</section>
+
+<section class="card" id="register">
+<h2>Customer Registration</h2>
+<form onsubmit="event.preventDefault();alert('यह केवल Trial Registration है। अभी अकाउंट सेव नहीं होता।')">
+<input placeholder="पूरा नाम / Full Name" required>
+<input type="tel" placeholder="Mobile Number" required>
+<input type="email" placeholder="Email Address">
+<input type="password" placeholder="Password" required>
+<button class="btn" type="submit">Register</button>
+</form>
+<p>यह अभी Demo है, वास्तविक अकाउंट सिस्टम नहीं।</p>
+</section>
+
+<section class="card" id="commission">
+<h2>Direct Referral Commission</h2>
+<h1 style="color:green">10%</h1>
+<p>सीधे रेफरल से 10% कमीशन का प्रस्ताव। वास्तविक कमीशन नियम और भुगतान सिस्टम शुरू होने के बाद लागू होंगे।</p>
+</section>
+
+<section class="card" id="payment">
+<h2>Payment Options</h2>
+<p>भुगतान का विकल्प चुनें:</p>
+<select id="pay">
+<option>UPI Payment</option>
+<option>Bank Transfer</option>
+</select>
+<button class="btn" onclick="alert('Trial: भुगतान अभी सक्रिय नहीं है।')">Continue</button>
+<p>अभी कोई वास्तविक भुगतान स्वीकार नहीं किया जाता।</p>
+</section>
+
+</div>
+
+<footer>
+<h3>JP ONLINE</h3>
+<p>Thank you for visiting!</p>
+<p>© 2026 JP ONLINE. All Rights Reserved.</p>
+</footer>
+
+<script>
+let hindi=true;
+function changeLang(){
+hindi=!hindi;
+document.getElementById('welcome').innerText=hindi?'JP ONLINE में आपका स्वागत है':'Welcome to JP ONLINE';
+document.getElementById('intro').innerText=hindi?'खरीदारी करें और अपने बिजनेस को आगे बढ़ाएं।':'Shop online and grow your business.';
+}
+</script>
+
+</body>
+</html>
